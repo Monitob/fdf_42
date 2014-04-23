@@ -6,7 +6,7 @@
 /*   By: jbernabe <jbernabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/04/21 15:22:46 by jbernabe          #+#    #+#             */
-/*   Updated: 2014/04/21 21:09:30 by jbernabe         ###   ########.fr       */
+/*   Updated: 2014/04/22 14:53:54 by jbernabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,11 @@ typedef struct	s_fdf
 	char	*file;
 }				t_fdf;
 
+typedef struct 	s_grille
+{
+	int				**map;
+	struct s_grille	*next;
+}				t_grille;
 
 
 int		key_control(int key);

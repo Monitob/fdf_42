@@ -14,9 +14,11 @@ CC = gcc
 
 NAME = fdf
 
-CFLAGS = -g --debug -Wall -Wextra -Werror
+CFLAGS = -g --debug -Wall -Wextra -Werror -I../minilibx/
 
-LIBMLX	= -L/usr/X11/lib/ -L/usr/X11/lib -lXext -lX11 -lmlx
+LIBMLX	= -L../minilibx/ -L/usr/X11/lib/ -L/usr/X11/lib -lXext -lX11 -lmlx
+
+#-L/usr/X11/lib/ -L/usr/X11/lib -lXext -lX11 -lmlx
 
 PATH_SRC = ./src
 PATH_OBJ = ./objs
@@ -42,11 +44,11 @@ $(PATH_OBJ)/%.o: $(addprefix $(PATH_SRC)/, %.c)
 	@echo Compiling object : $<
 
 clean:
-	@$(MAKE) -C libft $@
+	#@$(MAKE) -C libft $@
 	@rm -f $(OBJ)
 
 fclean:	clean
-	@$(MAKE) -C libft $@
+	#@$(MAKE) -C libft $@
 	@rm -f $(OBJ)
 	@rm -f $(NAME)
 
