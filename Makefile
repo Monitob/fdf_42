@@ -14,7 +14,8 @@ CC = gcc
 
 NAME = fdf
 
-CFLAGS = -g --debug -Wall -Wextra -Werror -I../minilibx/
+CFLAGS = -g --debug -I../minilibx/
+#-Wall -Wextra -Werror 
 
 LIBMLX	= -L../minilibx/ -L/usr/X11/lib/ -L/usr/X11/lib -lXext -lX11 -lmlx
 
@@ -24,7 +25,8 @@ PATH_SRC = ./src
 PATH_OBJ = ./objs
 PATH_INC = ./includes
 
-SRC = init_fdf.c control_mlx.c read_file.c
+SRC = init_fdf.c control_mlx.c read_file.c \
+		fct_list.c fct_debug.c
 
 OBJ = $(patsubst %.c, $(PATH_OBJ)/%.o, $(SRC))
 
@@ -44,11 +46,11 @@ $(PATH_OBJ)/%.o: $(addprefix $(PATH_SRC)/, %.c)
 	@echo Compiling object : $<
 
 clean:
-	@$(MAKE) -C libft $@
+	#@$(MAKE) -C libft $@
 	@rm -f $(OBJ)
 
 fclean:	clean
-	@$(MAKE) -C libft $@
+	#@$(MAKE) -C libft $@
 	@rm -f $(OBJ)
 	@rm -f $(NAME)
 
