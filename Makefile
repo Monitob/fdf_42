@@ -6,7 +6,7 @@
 #    By: jbernabe <jbernabe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/02/04 22:30:52 by jbernabe          #+#    #+#              #
-#    Updated: 2014/04/21 21:41:44 by jbernabe         ###   ########.fr        #
+#    Updated: 2014/04/25 18:25:16 by jbernabe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,9 @@ NAME = fdf
 CFLAGS = -g --debug -I../minilibx/
 #-Wall -Wextra -Werror 
 
-LIBMLX	= -L../minilibx/ -L/usr/X11/lib/ -L/usr/X11/lib -lXext -lX11 -lmlx -lm
+LIBMLX	= -L/usr/X11/lib/ -L/usr/X11/lib -lXext -lX11 -lmlx -lm
+#-L../minilibx/ -L/usr/X11/lib/ -L/usr/X11/lib -lXext -lX11 -lmlx -lm
 
-#-L/usr/X11/lib/ -L/usr/X11/lib -lXext -lX11 -lmlx
 
 PATH_SRC = ./src
 PATH_OBJ = ./objs
@@ -46,11 +46,11 @@ $(PATH_OBJ)/%.o: $(addprefix $(PATH_SRC)/, %.c)
 	@echo Compiling object : $<
 
 clean:
-	@$(MAKE) -C libft $@
+	#@$(MAKE) -C libft $@
 	@rm -f $(OBJ)
 
 fclean:	clean
-	@$(MAKE) -C libft $@
+	#@$(MAKE) -C libft $@
 	@rm -f $(OBJ)
 	@rm -f $(NAME)
 

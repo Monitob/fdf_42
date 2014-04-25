@@ -6,7 +6,7 @@
 /*   By: jbernabe <jbernabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/04/21 15:22:46 by jbernabe          #+#    #+#             */
-/*   Updated: 2014/04/22 14:53:54 by jbernabe         ###   ########.fr       */
+/*   Updated: 2014/04/25 18:39:07 by jbernabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct 		s_grille
 int		key_control(int key);
 void	read_file(int fd, t_fdf *ptr);
 void	print_list(char **map);
+int		ft_abs(int i);
 t_pos	*ft_single_pos();
 
 #endif

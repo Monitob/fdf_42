@@ -6,16 +6,22 @@
 /*   By: jbernabe <jbernabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/04/21 18:50:11 by jbernabe          #+#    #+#             */
-/*   Updated: 2014/04/22 16:33:40 by jbernabe         ###   ########.fr       */
+/*   Updated: 2014/04/25 19:36:26 by jbernabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h> //
 #include <stdlib.h>
 #include <math.h>
+#include <mlx.h>
 #include "fdf.h"
 
 
+int	ft_abs(int i)
+{
+	i = (i < 0 ? -i : i);
+	return (i);
+}
 
 void 	fct_line2(t_fdf *ptr, char **line)
 {
@@ -32,11 +38,12 @@ void 	fct_line2(t_fdf *ptr, char **line)
 	y1 = pos->y_p;
 	y_increment = pos->y_h > pos->y_p ? 1 : -1;
 	d = 2 * (pos->x_h - pos->x_p) - (pos->y_h - pos->y_p);
-	while (line[i])
+	while (i < 20)
 	{
 		y1 += y_increment;
-		d += 2 * (pos->x_p - pos->x_h) - (pos->y_p - pos->y_h);
- 		mlx_pixel_put(ptr->mlx, ptr->win,x1, y1, 0xFFF7AF);
+		x1 += 1;
+	//	d += 2 * (pos->x_p - pos->x_h) - (pos->y_p - pos->y_h);
+ 		mlx_pixel_put(ptr->mlx, ptr->win,x1, y1, 0xee6e1);
 		x1++;
 		y1++;
 		i++;
@@ -58,10 +65,11 @@ void 	fct_line(t_fdf *ptr, char **line)
 	x1 = pos->x_p;
 	i = 0;
 	x_increment = pos->x_p > pos->x_h ? 1 : -1;
-	d = 2 * (pos->x_p + pos->x_h) - (pos->y_p - pos->y_h);
+	//d = 2 * (pos->x_p + pos->x_h) - (pos->y_p - pos->y_h);
 	while (line[i])
 	{
 		printf("valor de d %i pos->x_p %i pos->x_p %i\n", d, pos->x_p, pos->y_p);
+
 		//print_list(line);
 		x1 += x_increment;
 		//d += 2 * (pos->x_h - pos->x_p) - (pos->y_h - pos->y_p);
@@ -70,7 +78,7 @@ void 	fct_line(t_fdf *ptr, char **line)
 		i++;
 		y1++;;
 	}
-	fct_line2(ptr, line);
+	//fct_line2(ptr, line);
 }
 
 void	read_to_transform(t_fdf *ptr, char **line, int j)
@@ -94,7 +102,7 @@ void	read_to_transform(t_fdf *ptr, char **line, int j)
 		pos->y_h -= 2 * ft_atoi(line[x]);
 		mlx_pixel_put(ptr->mlx, ptr->win, pos->x_p, pos->y_p, 0x1797CF);
 		mlx_pixel_put(ptr->mlx, ptr->win, pos->x_h, pos->y_h, 0xf797CF);
-		fct_line(ptr, line);
+	//	fct_line(ptr, line);
 		// if (line2[x2] != '\0')
 		// {
 		// 	set_point(&pos, line2, x2++, y + 1);
