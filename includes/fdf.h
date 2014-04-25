@@ -15,8 +15,8 @@
 
 # include "libft.h"
 # define ESCAPE 65307
-# define VISION 300
-# define PX_INI 200
+# define VISION 40
+# define PX_INI 100
 # define PY_INI 500
 
 typedef struct	s_pos
@@ -46,5 +46,6 @@ typedef struct 		s_grille
 int		key_control(int key);
 void	read_file(int fd, t_fdf *ptr);
 void	print_list(char **map);
+t_pos	*ft_single_pos();
 
 #endif

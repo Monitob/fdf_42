@@ -10,14 +10,14 @@
 #                                                                              #
 # **************************************************************************** #
 
-CC = gcc
+CC = cc
 
 NAME = fdf
 
 CFLAGS = -g --debug -I../minilibx/
 #-Wall -Wextra -Werror 
 
-LIBMLX	= -L../minilibx/ -L/usr/X11/lib/ -L/usr/X11/lib -lXext -lX11 -lmlx
+LIBMLX	= -L../minilibx/ -L/usr/X11/lib/ -L/usr/X11/lib -lXext -lX11 -lmlx -lm
 
 #-L/usr/X11/lib/ -L/usr/X11/lib -lXext -lX11 -lmlx
 

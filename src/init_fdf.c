@@ -42,7 +42,7 @@ t_pos	*ft_single_pos()
 		cor->x_h = 0;
 		cor->y_p = 0;
 		cor->y_h = 0;
-		cor->z_p = 0;
+		cor->z_h = 0;
 		cor->y_p = 0;
 	}
 	return (cor);
