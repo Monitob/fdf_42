@@ -11,22 +11,14 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <fcntl.h>
 #include <errno.h>
 #include <stdio.h>
 #include <mlx.h>
 #include "fdf.h"
 
 static int		expose_hook(t_fdf *ptr)
-{
-	int 	fd;
-
-	if ((fd = open(ptr->file, O_RDONLY)) == -1)
-	{
-		perror("Cannot open output file\n");
-		exit(0);
-	}
-	read_file(fd, ptr);
+{	
+	first_read(ft_open(ptr->file), ptr);
 	return (0);
 }
 
@@ -44,10 +36,11 @@ t_pos	*ft_single_pos()
 		cor->y_h = 0;
 		cor->z_h = 0;
 		cor->y_p = 0;
+		cor->dx = 0;
+		cor->dy = 0;
 	}
 	return (cor);
 }
-
 
 int	main(int ac, char **av)
 {
@@ -66,7 +59,6 @@ int	main(int ac, char **av)
 	{
 		ft_putendl("Usage: ./fdf map.fdf ");
 		return (0);
-	
 	}
 	return (0);
 }

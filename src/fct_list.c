@@ -8,7 +8,6 @@ void			show_list(t_grille *head)
 	temp = head;
 	while (temp != NULL)
 	{
-		printf("counter ------- #### %d", temp->count);
 		print_list(temp->map);
 		temp = temp->next;
 	}

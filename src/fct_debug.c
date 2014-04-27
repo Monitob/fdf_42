@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "fdf.h"
 
 void print_list(char **map)
@@ -12,10 +11,10 @@ void print_list(char **map)
 		j = 0;
 		while (map[i][j] !='\0')
 		{
-			printf("%c", map[i][j]);
+			ft_putchar(map[i][j]);
 			j++;
 		}
-		printf("\n");
+		write(1, "\n", 1);
 		i++;
 	}
 }

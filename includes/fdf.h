@@ -15,9 +15,9 @@
 
 # include "libft.h"
 # define ESCAPE 65307
-# define VISION 40
+# define VISION 20
 # define PX_INI 100
-# define PY_INI 500
+# define PY_INI 300
 
 typedef struct	s_pos
 {
@@ -26,7 +26,9 @@ typedef struct	s_pos
 	int		y_h;
 	int		y_p;
 	int		z_h;
-	int		z_p;	
+	int		z_p;
+	int		dx;
+	int		dy;	
 }				t_pos;
 
 typedef struct	s_fdf
@@ -45,18 +47,18 @@ typedef struct 		s_grille
 
 
 int			key_control(int key);
-void		read_to_transform(t_fdf *ptr, char **line,
-				int j, t_grille *list);
+int			ft_open(char *file);
+int			ft_abs(int i);
+void		read_to_transform(t_fdf *ptr, char **line, int j);
 void		show_list(t_grille *head);
 int			size_list(t_grille *head);
 void		set_point(t_fdf *ptr, char **line, int i, int j);
 void		line_to_list(t_grille *new_line, t_grille **head);
-void		read_file(int fd, t_fdf *ptr);
+void		first_read(int fd, t_fdf *ptr);
 void		print_list(char **map);
-int			ft_abs(int i);
 t_grille	*new_element(char **map_c);
 t_pos		*ft_single_pos();
 void		fct_line(t_fdf *ptr, char **line, t_grille *lines);
-
+void		list_to_tab(t_grille *head, t_fdf *ptr);
 
 #endif

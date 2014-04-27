@@ -17,8 +17,9 @@ NAME = fdf
 CFLAGS = -g --debug -I../minilibx/
 #-Wall -Wextra -Werror 
 
-LIBMLX	= -L/usr/X11/lib/ -L/usr/X11/lib -lXext -lX11 -lmlx -lm
-#-L../minilibx/ -L/usr/X11/lib/ -L/usr/X11/lib -lXext -lX11 -lmlx -lm
+LIBMLX	= -L../minilibx/ -L/usr/X11/lib/ -L/usr/X11/lib -lXext -lX11 -lmlx -lm
+#-L/usr/X11/lib/ -L/usr/X11/lib -lXext -lX11 -lmlx -lm
+
 
 
 PATH_SRC = ./src
@@ -26,7 +27,8 @@ PATH_OBJ = ./objs
 PATH_INC = ./includes
 
 SRC = init_fdf.c control_mlx.c read_file.c \
-		fct_list.c fct_debug.c
+		fct_list.c fct_debug.c transform.c \
+		draw_lines.c tools.c
 
 OBJ = $(patsubst %.c, $(PATH_OBJ)/%.o, $(SRC))
 
