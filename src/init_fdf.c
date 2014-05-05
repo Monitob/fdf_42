@@ -6,7 +6,7 @@
 /*   By: jbernabe <jbernabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/04/21 15:05:55 by jbernabe          #+#    #+#             */
-/*   Updated: 2014/04/25 18:38:44 by jbernabe         ###   ########.fr       */
+/*   Updated: 2014/04/27 22:53:39 by jbernabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@
 #include <mlx.h>
 #include "fdf.h"
 
-static int		expose_hook(t_fdf *ptr)
-{	
+static int			expose_hook(t_fdf *ptr)
+{
 	first_read(ft_open(ptr->file), ptr);
 	return (0);
 }
 
-t_pos	*ft_single_pos()
+t_pos				*ft_single_pos(void)
 {
-	static	t_pos	*cor = NULL;
+	static t_pos	*cor = NULL;
 
 	if (cor == NULL)
 	{
@@ -42,9 +42,9 @@ t_pos	*ft_single_pos()
 	return (cor);
 }
 
-int	main(int ac, char **av)
+int					main(int ac, char **av)
 {
-	t_fdf	ptr;
+	t_fdf			ptr;
 
 	if (ac > 1)
 	{

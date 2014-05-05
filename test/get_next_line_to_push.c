@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_to_push.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbernabe <jbernabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/08 16:59:29 by jbernabe          #+#    #+#             */
-/*   Updated: 2014/01/14 23:13:22 by jbernabe         ###   ########.fr       */
+/*   Updated: 2014/04/27 20:23:50 by jbernabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,8 @@ int				get_next_line(int const fd, char **line)
 	char		*l_buz;
 	int			ret;
 
-	if ((l_buz = (char *)malloc(sizeof(char) * BUFF_SIZE + 1)) == NULL)
-		return (-1);
-	if (fd < 0)
+	l_buz = (char *)malloc(sizeof(char) * BUFF_SIZE + 1))
+	if (fd < 0 && !l_buz)
 		return (-1);
 	else
 	{
@@ -53,12 +52,10 @@ int				get_next_line(int const fd, char **line)
 		}
 		while (!(p_after = ft_strchr(*line, '\n'))
 				&& (ret = read(fd, l_buz, BUFF_SIZE)) > 0)
-		{	
 			ft_strchr_free(line, l_buz, ret);
-		}
 		if (ret == 0 && p_after == NULL)
 			return (0);
-		 ret = (ret == -1) ? -1: 1;
+		ret = (ret == -1) ? -1: 1;
 		ft_strsub_free(line, &p_after);
 		free(l_buz);
 		return (1);

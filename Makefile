@@ -6,7 +6,7 @@
 #    By: jbernabe <jbernabe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/02/04 22:30:52 by jbernabe          #+#    #+#              #
-#    Updated: 2014/04/26 22:35:24 by jbernabe         ###   ########.fr        #
+#    Updated: 2014/04/27 23:02:31 by jbernabe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,13 +14,9 @@ CC = cc
 
 NAME = fdf
 
-CFLAGS = -g --debug -I../minilibx/
-#-Wall -Wextra -Werror 
+CFLAGS = -Wall -Wextra -Werror 
 
-LIBMLX	= -L../minilibx/ -L/usr/X11/lib/ -L/usr/X11/lib -lXext -lX11 -lmlx -lm
-#-L/usr/X11/lib/ -L/usr/X11/lib -lXext -lX11 -lmlx -lm
-
-
+LIBMLX	= -L/usr/X11/lib/ -L/usr/X11/lib -lXext -lX11 -lmlx -lm
 
 PATH_SRC = ./src
 PATH_OBJ = ./objs
